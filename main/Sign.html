@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/sign.css">
+
+<!---javascript validation-->
+  <script type="text/javascript">
+      function validate() {
+          var correct_way = /^[0-9]+$/;
+
+          var email = document.getElementById('email').value;
+          var pass = document.getElementById('pass').value;
+
+          if (email.indexOf("@") <= 0) {
+              alert("Invalid Email Id");
+              document.getElementById("email").focus();
+              return false;
+          }
+
+          if (email.indexOf(".") < 0) {
+              alert("Invalid Email Id");
+              document.getElementById("email").focus();
+              return false;
+          }
+
+          if (email.charAt(email.length - 4) != '.') {
+              alert("Invalid Email Id");
+              document.getElementById("email").focus();
+              return false;
+          }
+          if (pass.length != 5) {
+              alert("password format incorrect");
+              document.getElementById("pass").focus();
+              return false;
+          }
+          if (pass.match(correct_way)) {
+              return true;
+          } else {
+              alert(" Allowed");
+              document.getElementById("pass").focus();
+              return false;
+          }
+      }
+    /*  function checkPassword(form) {
+      		pass = form.pass.value;
+      		pass2 = form.pass2.value; 
+      
+       if (pass != pass2) {
+      		alert("\nPassword did not match: Please try again...")
+      		return false;
+      	}
+
+      	// If same return True. 
+      	else {
+      		alert("Password Match: Welcome to GeeksforGeeks!")
+      		return true;
+      	} 
+
+
+      function show() {
+          if (document.getElementById("pass").type == 'password') {
+              document.getElementById("pass").type = 'text';
+          } else {
+              document.getElementById("pass").type = 'Password';
+          }
+      }*/
+  </script>
+
+<!---javascript validation-->
+
+
+</head>
+<body>
+<form onsubmit="return validate()" class="box" method="post">
+    <h1>Sign In</h1>
+
+    <input type="text" name="" placeholder="Username" id="email" required autofocus>
+    <input type="password" name="pass1" placeholder="Password" id="pass" required autofocus>
+    <input type="password" name="pass2" placeholder="Confirm Password" id="pass2" required autofocus>
+    <input type="checkbox" name="c1" id="c1" onclick="show()">Show/Hide Password
+    <input type="submit" name="" value="Sign In">
+
+
+
+
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
